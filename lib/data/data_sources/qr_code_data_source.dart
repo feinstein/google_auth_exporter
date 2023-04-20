@@ -1,6 +1,6 @@
 import 'package:flutter/services.dart';
 
-class QrCodeRepository {
+class QrCodeDataSource {
   static const channel = MethodChannel('barcode_scanner');
 
   Future<String?> scan() async {
