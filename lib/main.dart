@@ -1,6 +1,8 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_auth_exporter/data/repositories/qr_code_repository.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 void main() {
   runApp(const MyApp());
@@ -52,14 +54,21 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Text(
-              'Google Authenticator generates a proprietary QR Code for exporting your 2FA to another device.\n\n'
-              "For security reasons, it's not possible to use the same device for scanning the QR code.\n\n"
-              'If you want to use this app from the same device that has Google Authenticator, take a picture '
-              'of the QR code with another device (computer, phone, etc.) '
-              'and then scan the picture with this app.\n\n'
-              "This app doesn't transmit any data to the internet and is open-sourced.",
-              style: Theme.of(context).textTheme.titleMedium,
+            RichText(
+              text: TextSpan(
+                  children: [
+                    const TextSpan(text: 'Google Authenticator generates a proprietary QR Code for exporting your 2FA to another device.\n\n'),
+                    const TextSpan(text: 'If you want to use this app from the same device that has Google Authenticator, '
+                        'take a picture of the QR code with another device (computer, phone, etc.), then scan the picture with this app.\n\n'),
+                    const TextSpan(text: "This app doesn't transmit any data to the internet and is open-sourced. The algorithm was inspired by "),
+                    TextSpan(
+                    text: 'this node.js package.',
+                    style: const TextStyle(color: Colors.blue, decoration: TextDecoration.underline),
+                    recognizer: TapGestureRecognizer()..onTap = () => launchUrlString('https://github.com/krissrex/google-authenticator-exporter', mode: LaunchMode.externalApplication),
+                  ),
+                  ],
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
             ),
             const SizedBox(height: 40.0),
             ElevatedButton(
