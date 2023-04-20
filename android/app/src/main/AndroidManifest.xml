@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.feinstein.google_auth_exporter">
    <application
-        android:label="google_auth_exporter"
+        android:label="Google Auth Exporter"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
@@ -30,5 +30,8 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
-    </application>
+       <meta-data
+           android:name="com.google.mlkit.vision.DEPENDENCIES"
+           android:value="barcode_ui"/>
+   </application>
 </manifest>
