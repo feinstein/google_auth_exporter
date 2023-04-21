@@ -10,7 +10,7 @@ class GoogleAuthRepository {
 
   final QrCodeDataSource qrCodeDataSource;
 
-  Future<Iterable<GoogleAuthTotp>?> import() async {
+  Future<List<GoogleAuthTotp>?> import() async {
     final qrCodeContent = await qrCodeDataSource.scan();
 
     if (qrCodeContent == null) {
@@ -30,11 +30,11 @@ class GoogleAuthRepository {
       (otpParam) {
         return GoogleAuthTotp(
           secret: otpParam.secret,
-          name: otpParam.name,
+          label: otpParam.name,
           issuer: otpParam.issuer,
         );
       },
-    );
+    ).toList(growable: false);
   }
 }
 

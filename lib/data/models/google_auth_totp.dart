@@ -5,8 +5,12 @@ part 'google_auth_totp.freezed.dart';
 @freezed
 class GoogleAuthTotp with _$GoogleAuthTotp {
   const factory GoogleAuthTotp({
-    required String name,
+    required String label,
     required String issuer,
     required List<int> secret,
   }) = _GoogleAuthTotp;
+
+  const GoogleAuthTotp._();
+
+  String get name => label.replaceFirst(RegExp('.*:'), '');
 }

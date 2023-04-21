@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:google_auth_exporter/ui/imported_totps_page.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 import '../data/repositories/google_auth_repository.dart';
@@ -13,6 +14,22 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  Future<void> showMessageDialog(String title, String message) async {
+    if (!mounted) {
+      return;
+    }
+
+    return showDialog(context: context, builder: (context) {
+      return AlertDialog(
+        title: Text(title),
+        content: Text(message),
+        actions: [
+          TextButton(onPressed: () => Navigator.of(context).pop(), child: const Text('Ok'))
+        ],
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,9 +62,19 @@ class _HomePageState extends State<HomePage> {
             ElevatedButton(
               onPressed: () async {
                 try {
-                  await getIt<GoogleAuthRepository>().import();
+                  final totps = await getIt<GoogleAuthRepository>().import();
+                  if (totps == null || !mounted) {
+                    // The user canceled the import
+                    return;
+                  }
+
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => ImportedTotpPage(totps: totps),
+                    ),
+                  );
                 } on InvalidQrCodeException {
-                  throw UnimplementedError();
+                  await showMessageDialog('Invalid QR Code', 'This QR Code is not from Google Authenticator.');
                 }
               },
               child: const Text('Scan QR Code'),

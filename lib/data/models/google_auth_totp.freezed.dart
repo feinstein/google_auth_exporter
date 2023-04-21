@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$GoogleAuthTotp {
-  String get name => throw _privateConstructorUsedError;
+  String get label => throw _privateConstructorUsedError;
   String get issuer => throw _privateConstructorUsedError;
   List<int> get secret => throw _privateConstructorUsedError;
 
@@ -31,7 +31,7 @@ abstract class $GoogleAuthTotpCopyWith<$Res> {
           GoogleAuthTotp value, $Res Function(GoogleAuthTotp) then) =
       _$GoogleAuthTotpCopyWithImpl<$Res, GoogleAuthTotp>;
   @useResult
-  $Res call({String name, String issuer, List<int> secret});
+  $Res call({String label, String issuer, List<int> secret});
 }
 
 /// @nodoc
@@ -47,14 +47,14 @@ class _$GoogleAuthTotpCopyWithImpl<$Res, $Val extends GoogleAuthTotp>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? label = null,
     Object? issuer = null,
     Object? secret = null,
   }) {
     return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      label: null == label
+          ? _value.label
+          : label // ignore: cast_nullable_to_non_nullable
               as String,
       issuer: null == issuer
           ? _value.issuer
@@ -76,7 +76,7 @@ abstract class _$$_GoogleAuthTotpCopyWith<$Res>
       __$$_GoogleAuthTotpCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String issuer, List<int> secret});
+  $Res call({String label, String issuer, List<int> secret});
 }
 
 /// @nodoc
@@ -90,14 +90,14 @@ class __$$_GoogleAuthTotpCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? label = null,
     Object? issuer = null,
     Object? secret = null,
   }) {
     return _then(_$_GoogleAuthTotp(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      label: null == label
+          ? _value.label
+          : label // ignore: cast_nullable_to_non_nullable
               as String,
       issuer: null == issuer
           ? _value.issuer
@@ -113,15 +113,16 @@ class __$$_GoogleAuthTotpCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GoogleAuthTotp implements _GoogleAuthTotp {
+class _$_GoogleAuthTotp extends _GoogleAuthTotp {
   const _$_GoogleAuthTotp(
-      {required this.name,
+      {required this.label,
       required this.issuer,
       required final List<int> secret})
-      : _secret = secret;
+      : _secret = secret,
+        super._();
 
   @override
-  final String name;
+  final String label;
   @override
   final String issuer;
   final List<int> _secret;
@@ -134,7 +135,7 @@ class _$_GoogleAuthTotp implements _GoogleAuthTotp {
 
   @override
   String toString() {
-    return 'GoogleAuthTotp(name: $name, issuer: $issuer, secret: $secret)';
+    return 'GoogleAuthTotp(label: $label, issuer: $issuer, secret: $secret)';
   }
 
   @override
@@ -142,14 +143,14 @@ class _$_GoogleAuthTotp implements _GoogleAuthTotp {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_GoogleAuthTotp &&
-            (identical(other.name, name) || other.name == name) &&
+            (identical(other.label, label) || other.label == label) &&
             (identical(other.issuer, issuer) || other.issuer == issuer) &&
             const DeepCollectionEquality().equals(other._secret, _secret));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, name, issuer, const DeepCollectionEquality().hash(_secret));
+      runtimeType, label, issuer, const DeepCollectionEquality().hash(_secret));
 
   @JsonKey(ignore: true)
   @override
@@ -158,14 +159,15 @@ class _$_GoogleAuthTotp implements _GoogleAuthTotp {
       __$$_GoogleAuthTotpCopyWithImpl<_$_GoogleAuthTotp>(this, _$identity);
 }
 
-abstract class _GoogleAuthTotp implements GoogleAuthTotp {
+abstract class _GoogleAuthTotp extends GoogleAuthTotp {
   const factory _GoogleAuthTotp(
-      {required final String name,
+      {required final String label,
       required final String issuer,
       required final List<int> secret}) = _$_GoogleAuthTotp;
+  const _GoogleAuthTotp._() : super._();
 
   @override
-  String get name;
+  String get label;
   @override
   String get issuer;
   @override
