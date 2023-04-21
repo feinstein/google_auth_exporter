@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Google Auth Exporter'),
+        title: const Text('Google Authenticator Exporter'),
         centerTitle: true,
       ),
       body: Padding(
@@ -44,6 +44,7 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             RichText(
               text: TextSpan(
+                style: Theme.of(context).textTheme.bodyLarge,
                 children: [
                   const TextSpan(text: 'Google Authenticator generates a proprietary QR Code for exporting your 2FA to another device.\n\n'),
                   const TextSpan(text: 'If you want to use this app from the same device that has Google Authenticator, '
@@ -55,7 +56,6 @@ class _HomePageState extends State<HomePage> {
                     recognizer: TapGestureRecognizer()..onTap = () => launchUrlString('https://github.com/krissrex/google-authenticator-exporter', mode: LaunchMode.externalApplication),
                   ),
                 ],
-                style: Theme.of(context).textTheme.titleMedium,
               ),
             ),
             const SizedBox(height: 40.0),

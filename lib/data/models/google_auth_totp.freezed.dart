@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$GoogleAuthTotp {
   String get label => throw _privateConstructorUsedError;
   String get issuer => throw _privateConstructorUsedError;
-  List<int> get secret => throw _privateConstructorUsedError;
+  Uint8List get secret => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $GoogleAuthTotpCopyWith<GoogleAuthTotp> get copyWith =>
@@ -31,7 +31,7 @@ abstract class $GoogleAuthTotpCopyWith<$Res> {
           GoogleAuthTotp value, $Res Function(GoogleAuthTotp) then) =
       _$GoogleAuthTotpCopyWithImpl<$Res, GoogleAuthTotp>;
   @useResult
-  $Res call({String label, String issuer, List<int> secret});
+  $Res call({String label, String issuer, Uint8List secret});
 }
 
 /// @nodoc
@@ -63,7 +63,7 @@ class _$GoogleAuthTotpCopyWithImpl<$Res, $Val extends GoogleAuthTotp>
       secret: null == secret
           ? _value.secret
           : secret // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as Uint8List,
     ) as $Val);
   }
 }
@@ -76,7 +76,7 @@ abstract class _$$_GoogleAuthTotpCopyWith<$Res>
       __$$_GoogleAuthTotpCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String label, String issuer, List<int> secret});
+  $Res call({String label, String issuer, Uint8List secret});
 }
 
 /// @nodoc
@@ -104,9 +104,9 @@ class __$$_GoogleAuthTotpCopyWithImpl<$Res>
           : issuer // ignore: cast_nullable_to_non_nullable
               as String,
       secret: null == secret
-          ? _value._secret
+          ? _value.secret
           : secret // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as Uint8List,
     ));
   }
 }
@@ -115,23 +115,15 @@ class __$$_GoogleAuthTotpCopyWithImpl<$Res>
 
 class _$_GoogleAuthTotp extends _GoogleAuthTotp {
   const _$_GoogleAuthTotp(
-      {required this.label,
-      required this.issuer,
-      required final List<int> secret})
-      : _secret = secret,
-        super._();
+      {required this.label, required this.issuer, required this.secret})
+      : super._();
 
   @override
   final String label;
   @override
   final String issuer;
-  final List<int> _secret;
   @override
-  List<int> get secret {
-    if (_secret is EqualUnmodifiableListView) return _secret;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_secret);
-  }
+  final Uint8List secret;
 
   @override
   String toString() {
@@ -145,12 +137,12 @@ class _$_GoogleAuthTotp extends _GoogleAuthTotp {
             other is _$_GoogleAuthTotp &&
             (identical(other.label, label) || other.label == label) &&
             (identical(other.issuer, issuer) || other.issuer == issuer) &&
-            const DeepCollectionEquality().equals(other._secret, _secret));
+            const DeepCollectionEquality().equals(other.secret, secret));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, label, issuer, const DeepCollectionEquality().hash(_secret));
+      runtimeType, label, issuer, const DeepCollectionEquality().hash(secret));
 
   @JsonKey(ignore: true)
   @override
@@ -163,7 +155,7 @@ abstract class _GoogleAuthTotp extends GoogleAuthTotp {
   const factory _GoogleAuthTotp(
       {required final String label,
       required final String issuer,
-      required final List<int> secret}) = _$_GoogleAuthTotp;
+      required final Uint8List secret}) = _$_GoogleAuthTotp;
   const _GoogleAuthTotp._() : super._();
 
   @override
@@ -171,7 +163,7 @@ abstract class _GoogleAuthTotp extends GoogleAuthTotp {
   @override
   String get issuer;
   @override
-  List<int> get secret;
+  Uint8List get secret;
   @override
   @JsonKey(ignore: true)
   _$$_GoogleAuthTotpCopyWith<_$_GoogleAuthTotp> get copyWith =>

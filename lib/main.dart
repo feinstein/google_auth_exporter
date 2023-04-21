@@ -9,25 +9,23 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+final routeObserver = RouteObserver();
+
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Google Authenticator Exporter',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-        brightness: Brightness.dark,
-        canvasColor: const Color(0xFF202124),
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.transparent,
-          foregroundColor: Colors.white,
-          systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: Colors.transparent),
-          elevation: 0,
-        ),
-      ),
+      theme: ThemeData.dark(useMaterial3: true),
       home: const HomePage(),
+      navigatorObservers: [routeObserver],
     );
   }
 }

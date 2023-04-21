@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:typed_data';
 
 import 'package:google_auth_exporter/data/models/google_auth.pb.dart';
 import 'package:google_auth_exporter/data/models/google_auth_totp.dart';
@@ -29,7 +30,7 @@ class GoogleAuthRepository {
     return payload.otpParameters.map(
       (otpParam) {
         return GoogleAuthTotp(
-          secret: otpParam.secret,
+          secret: Uint8List.fromList(otpParam.secret),
           label: otpParam.name,
           issuer: otpParam.issuer,
         );

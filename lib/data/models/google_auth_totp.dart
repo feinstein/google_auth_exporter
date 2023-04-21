@@ -1,3 +1,4 @@
+import 'dart:typed_data';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'google_auth_totp.freezed.dart';
@@ -7,7 +8,7 @@ class GoogleAuthTotp with _$GoogleAuthTotp {
   const factory GoogleAuthTotp({
     required String label,
     required String issuer,
-    required List<int> secret,
+    required Uint8List secret,
   }) = _GoogleAuthTotp;
 
   const GoogleAuthTotp._();
