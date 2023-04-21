@@ -44,11 +44,13 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             RichText(
               text: TextSpan(
-                style: Theme.of(context).textTheme.bodyLarge,
+                style: Theme.of(context).textTheme.bodyMedium,
                 children: [
-                  const TextSpan(text: 'Google Authenticator generates a proprietary QR Code for exporting your 2FA to another device.\n\n'),
-                  const TextSpan(text: 'If you want to use this app from the same device that has Google Authenticator, '
-                      'take a picture of the QR code with another device (computer, phone, etc.), then scan the picture with this app.\n\n'),
+                  const TextSpan(text: 'This app is meant to securely import your verification codes from Google Authenticator, so you can export them to any other app you want.\n\n'),
+                  const TextSpan(text: "Google Authenticator generates a proprietary QR Code for exporting your 2FA to another device. It blocks screenshots, so you can't "
+                      "use this app for scanning the Google Authenticator QR code in the same device.\n\n"),
+                  const TextSpan(text: 'You can take a picture of the QR code with another device (computer, phone, etc.), then scan the picture with this app.\n\n'),
+                  // TODO: Add the repo website
                   const TextSpan(text: "This app doesn't transmit any data to the internet and is open-sourced. The algorithm was inspired by "),
                   TextSpan(
                     text: 'this node.js package.',

@@ -66,7 +66,12 @@ class _ImportedTotpDetailsPageState extends State<ImportedTotpDetailsPage> with 
                     ),
                     const SizedBox(height: 32.0),
                     QrImage(data: qrCodeData),
-                    const Spacer(),
+                    const SizedBox(height: 16.0),
+                    Text(
+                    "Some password managers can only scan the computer's screen, in these case, make the QR Code appear on the screen by opening the Camera app.",
+                    style: Theme.of(context).textTheme.labelMedium!.copyWith(color: Colors.black54),
+                  ),
+                  const Spacer(),
                   ],
                 ),
               ),
