@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Google Auth Exporter',
+      title: 'Google Authenticator Exporter',
       theme: ThemeData(
         primarySwatch: Colors.green,
         brightness: Brightness.dark,

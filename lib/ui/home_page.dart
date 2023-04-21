@@ -44,7 +44,11 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(height: 40.0),
             ElevatedButton(
               onPressed: () async {
-                await getIt<GoogleAuthRepository>().import();
+                try {
+                  await getIt<GoogleAuthRepository>().import();
+                } on InvalidQrCodeException {
+                  throw UnimplementedError();
+                }
               },
               child: const Text('Scan QR Code'),
             ),
