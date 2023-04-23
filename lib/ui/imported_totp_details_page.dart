@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_auth_exporter/data/models/google_auth_totp.dart';
-import 'package:google_auth_exporter/data/repositories/qr_code_repository.dart';
 import 'package:google_auth_exporter/di.dart';
+import 'package:google_auth_exporter/domain/qr_code_generator_use_case.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:screen_brightness/screen_brightness.dart';
 
@@ -20,7 +20,7 @@ class ImportedTotpDetailsPage extends StatefulWidget {
 }
 
 class _ImportedTotpDetailsPageState extends State<ImportedTotpDetailsPage> with RouteAware {
-  late final qrCodeData = getIt<QrCodeRepository>().qrCodeDataFor(
+  late final qrCodeData = getIt<QrCodeGeneratorUseCase>().call(
     label: widget.totp.label,
     issuer: widget.totp.issuer,
     secret: widget.totp.secret,

@@ -38,7 +38,7 @@ class MainActivity : FlutterActivity() {
                 val listener = ModuleInstallProgressListener()
                 val moduleInstallRequest = ModuleInstallRequest.newBuilder()
                     .addApi(scanner)
-                    .setListener(listener)
+//                    .setListener(listener)
                     .build()
 
                 moduleInstallClient

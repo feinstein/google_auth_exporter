@@ -32,7 +32,6 @@ void main() {
 class FakeQrCodeDataSource implements QrCodeDataSource {
   @override
   Future<String?> scan() async {
-    // TODO: DO NOT COMMIT THIS!!!!
     return 'otpauth-migration://offline?data=CkEKFAECAwQFBgcICQoLDA0ODxAREhMUEhZhY2NvdW50LmNvbTpNeSBBY2NvdW50GgthY2NvdW50LmNvbSABKAEwAgpDChQCAwQFBgcICQoLDA0ODxAREhMUFRIXYWNjb3VudC5jb206TXkgQWNjb3VudDIaDGFjY291bnQyLmNvbSABKAEwAhABGAEgACjAxAc=';
   }
 }
@@ -68,7 +67,7 @@ class HasSamePayloadMatcher extends Matcher {
       final totp = item.elementAt(i) as GoogleAuthTotp;
       final otpParam = payload.otpParameters.elementAt(i);
 
-      if (totp.name != otpParam.name || totp.issuer != otpParam.issuer || !listEquals(totp.secret, otpParam.secret)) {
+      if (totp.label != otpParam.name || totp.issuer != otpParam.issuer || !listEquals(totp.secret, otpParam.secret)) {
         matchState['errorIndex'] = i;
         return false;
       }
