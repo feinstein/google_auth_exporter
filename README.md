@@ -8,7 +8,7 @@ This app was created so you can read Google Authenticator's QR Codes and export 
 
 ## Getting Started
 
-This a Flutter App, if you want to run it yourself, please check how to install Flutter.
+This a Flutter App, if you want to run it yourself, please check [how to install Flutter](https://docs.flutter.dev/get-started/install).
 
 This app is only compatible with Android.
 
