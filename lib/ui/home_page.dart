@@ -50,12 +50,11 @@ class _HomePageState extends State<HomePage> {
                   const TextSpan(text: "Google Authenticator generates a proprietary QR Code for exporting your 2FA to another device. It blocks screenshots, so you can't "
                       "use this app for scanning the Google Authenticator QR code in the same device.\n\n"),
                   const TextSpan(text: 'You can take a picture of the QR code with another device (computer, phone, etc.), then scan the picture with this app.\n\n'),
-                  // TODO: Add the repo website
-                  const TextSpan(text: "This app doesn't transmit any data to the internet and is open-sourced. The algorithm was inspired by "),
+                  const TextSpan(text: "This app doesn't store or transmit any data to the internet and is open-sourced. You can find the code "),
                   TextSpan(
-                    text: 'this node.js package.',
+                    text: 'here.',
                     style: const TextStyle(color: Colors.blue, decoration: TextDecoration.underline),
-                    recognizer: TapGestureRecognizer()..onTap = () => launchUrlString('https://github.com/krissrex/google-authenticator-exporter', mode: LaunchMode.externalApplication),
+                    recognizer: TapGestureRecognizer()..onTap = () => launchUrlString('https://github.com/feinstein/google_auth_exporter', mode: LaunchMode.externalApplication),
                   ),
                 ],
               ),

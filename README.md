@@ -1,16 +1,17 @@
-# google_auth_exporter
+## About
 
-Google Auth Exporter
+Unfortunately Google Authenticator exports its verification codes in a proprietary QR Code.
+
+Sometimes we want to import these codes into anther software, but many programs can't read Google Authenticator's QR Codes.
+
+This app was created so you can read Google Authenticator's QR Codes and export the verification codes to any other app. This app will generate the original QR Codes for these accounts.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This a Flutter App, if you want to run it yourself, please check how to install Flutter.
 
-A few resources to get you started if this is your first Flutter project:
+This app is only compatible with Android.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+This app doesn't store or transmit any of your data, it can work offline.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The algorithm was inspired by [this node.js project](https://github.com/krissrex/google-authenticator-exporter).
