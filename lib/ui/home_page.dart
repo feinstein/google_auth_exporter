@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Google Authenticator Exporter'),
+        title: const Text('Authenticator Exporter'),
         centerTitle: true,
       ),
       body: Padding(
@@ -46,9 +46,9 @@ class _HomePageState extends State<HomePage> {
               text: TextSpan(
                 style: Theme.of(context).textTheme.bodyMedium,
                 children: [
-                  const TextSpan(text: 'This app is meant to securely import your verification codes from Google Authenticator, so you can export them to any other app you want.\n\n'),
-                  const TextSpan(text: "Google Authenticator generates a proprietary QR Code for exporting your 2FA to another device. It blocks screenshots, so you can't "
-                      "use this app for scanning the Google Authenticator QR code in the same device.\n\n"),
+                  const TextSpan(text: 'This app is meant to securely import your verification codes from Authenticator, so you can export them to any other app you want.\n\n'),
+                  const TextSpan(text: "Authenticator generates a proprietary QR Code for exporting your 2FA to another device. It blocks screenshots, so you can't "
+                      "use this app for scanning the Authenticator QR code in the same device.\n\n"),
                   const TextSpan(text: 'You can take a picture of the QR code with another device (computer, phone, etc.), then scan the picture with this app.\n\n'),
                   const TextSpan(text: "This app doesn't store or transmit any data to the internet and is open-sourced. You can find the code "),
                   TextSpan(
@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   );
                 } on InvalidQrCodeException {
-                  await showMessageDialog('Invalid QR Code', 'This QR Code is not from Google Authenticator.');
+                  await showMessageDialog('Invalid QR Code', 'This QR Code is not from Authenticator.');
                 }
               },
               child: const Text('Scan QR Code'),

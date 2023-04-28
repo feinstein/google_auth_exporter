@@ -1,10 +1,10 @@
 ## About
 
-Unfortunately Google Authenticator exports its verification codes in a proprietary QR Code.
+Unfortunately Authenticator exports its verification codes in a proprietary QR Code.
 
-Sometimes we want to import these codes into anther software, but many programs can't read Google Authenticator's QR Codes.
+Sometimes we want to import these codes into anther software, but many programs can't read Authenticator's QR Codes.
 
-This app was created so you can read Google Authenticator's QR Codes and export the verification codes to any other app. This app will generate the original QR Codes for these accounts.
+This app was created so you can read Authenticator's QR Codes and export the verification codes to any other app. This app will generate the original QR Codes for these accounts.
 
 ## Getting Started
 

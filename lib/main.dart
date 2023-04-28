@@ -21,7 +21,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Google Authenticator Exporter',
+      title: 'Authenticator Exporter',
       theme: ThemeData.dark(useMaterial3: true),
       home: const HomePage(),
       navigatorObservers: [routeObserver],
